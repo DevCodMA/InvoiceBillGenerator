@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>ID Card Generator</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-6 mr-auto">
+      <div style="height:100%" class="bgc" align="center">
+        <img src="img/logo.png" style="margin-top:300px;height:250px;width:200px;">
+      </div>
+    </div>
+    <div class="col-8 col-md-8 col-lg-3 col-xl-3 mx-auto">
+      <div id="signin-div" style="display: block;">
+        <p style="margin-top:300px;"></p>
+        <div class="form-outline">
+          <input type="text" id="uname" placeholder="Username"/>
+
+        </div>
+        <div class="form-outline">
+          <input type="password" id="password" placeholder="Password"/>
+        </div>
+
+
+        <button class="btn btn-block" id="signin-btn">Sign In</button>
+        <button class="btn btn-block" id="signup" style="margin-bottom:500px">Sign Up</button>
+      </div>
+      <div id="signup-div" style="display: none;">
+        <p style="margin-top:160px;"></p>
+        <div class="form-outline">
+          <input type="text" id="fname" placeholder="Full Name"/>
+
+        </div>
+        <div class="form-outline">
+          <input type="text" id="username" placeholder="Username"/>
+
+        </div>
+        <div class="form-outline">
+          <input type="password" id="pswd" placeholder="Password"/>
+
+        </div>
+        <div class="form-outline">
+          <input type="password" id="cpswd" placeholder="Confirm Password"/>
+        </div>
+
+        <button class="btn btn-block" id="signup-btn">Register</button>
+        <button class="btn btn-block" id="signin" style="margin-bottom:500px">Sign In</button>
+
+      </div>
+    </div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script>
+    $("#signup").click(function () {
+      $("#signup-div").css("display", "block")
+      $("#signin-div").css("display", "none")
+    })
+
+    $("#signin").click(function () {
+      $("#signin-div").css("display", "block")
+      $("#signup-div").css("display", "none")
+    })
+
+    $("#signin-btn").click(function () {
+      $.post("main.php",
+        {
+          uname: $("#uname").val(),
+          password: $("#password").val()
+        },
+        function (data, status) {
+          console.log(data)
+          if(data=="1")
+            window.location.href="home.html";
+      });
+    })
+
+    $("#signup-btn").click(function () {
+      if($("#pswd").val()==$("#cpswd").val()&&$("#pswd").val().length>5){
+        console.log($("#pswd").val())
+        $.post("register.php",
+        {
+
+          fname:$("#fname").val(),
+          uname: $("#username").val(),
+          pswd: $("#pswd").val()
+        },
+        function (data, status) {
+          console.log(data)
+          if(data=="1"){
+            alert("Registration Successfull!")
+            $("#fname").val('')
+            $("#username").val('')
+            $("#pswd").val('')
+            $("#cpswd").val('')
+          }
+          else
+            alert("Registration Failed!")
+      });
+      }else{
+        alert("Incorrect Password!")
+      }
+    })
+
+   
+  </script>
+</body>
+
+</html>

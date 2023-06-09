@@ -1,0 +1,90 @@
+.btn {
+    margin-top: 20px;
+    border: 2.5px solid black;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+#signin:hover,
+#signup:hover,
+#signin-btn:hover,
+#signup-btn:hover,
+#search-btn:hover,
+#generate-btn:hover,
+#print-btn:hover,
+#new-btn:hover,
+#add-btn:hover,
+#cancel-btn:hover,
+#advanced:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+html {
+    overflow: hidden;
+}
+
+.bgc {
+    background: linear-gradient(90deg, rgb(27, 27, 99) 35%, rgba(53, 55, 55, 1) 100%);
+}
+
+.bground {
+    background-image: linear-gradient(-90deg, #2f4353 0%, #d2ccc4 75%);
+}
+
+#coladdr,
+#resaddr {
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.25);
+    resize: none;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.td {
+    width: 200px;
+    height: 30px;
+}
+
+#uname,
+#password,
+#fname,
+#username,
+#pswd,
+#cpswd,
+#cname,#coname,
+#bno,
+#pname,
+#pprice,
+#qty,
+#tax,
+#tprice,
+#company,#emailid,#phonenum,#caddress {
+    width: 100%;
+    border-radius: 30px;
+    outline: none;
+    font-size: 18px;
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 40px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 15px;
+    color: rgba(0, 0, 0, 1);
+
+}
+
+#table::-webkit-scrollbar {
+    display: none;
+}
+
+#ptable+td:hover{
+    background-color: red;
+}
